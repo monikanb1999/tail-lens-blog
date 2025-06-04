@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tail Lens - The Visual Tailwind Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+        
+        .pricing-glow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2px;
+            border-radius: 20px;
+        }
+        
+        .pricing-inner {
+            background: white;
+            border-radius: 18px;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <div class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Floating elements for visual interest -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full floating"></div>
+        <div class="absolute top-40 right-20 w-16 h-16 bg-white/5 rounded-full floating" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-20 left-20 w-24 h-24 bg-white/5 rounded-full floating" style="animation-delay: 2s;"></div>
+        
+        <div class="container mx-auto px-6 text-center text-white relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-6xl md:text-7xl font-black mb-6 leading-tight">
+                    Meet <span class="text-yellow-300">Tail Lens</span>
+                </h1>
+                <p class="text-2xl md:text-3xl font-light mb-4 text-blue-100">
+                    The Visual Tailwind Editor for Beginners
+                </p>
+                <p class="text-xl md:text-2xl mb-12 text-blue-200 font-light max-w-3xl mx-auto leading-relaxed">
+                    Transform your Tailwind CSS workflow with real-time visual editing. No more guessing, no more tab switching, just pure creative flow.
+                </p>
+                
+                <div class="flex justify-center items-center mb-16">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 rounded-full blur opacity-75 animate-pulse"></div>
+                        <button class="relative bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                            Get Tail Lens - $30
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="text-sm text-blue-200">
+                    💎 One-time payment • 🔄 Lifetime access • ⚡ No subscriptions
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <div class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6">
+                    Tailwind's Hidden Problem
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    What starts as clean utility-first styling quickly becomes a nightmare of endless class chains
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div class="space-y-8">
+                    <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded-r-lg">
+                        <h3 class="font-bold text-red-800 mb-2">🔗 Endless Class Chains</h3>
+                        <p class="text-red-700">Your HTML becomes unreadable with utility strings like <code class="bg-red-100 px-2 py-1 rounded">flex justify-between items-center px-4 py-2 bg-blue-500 hover:bg-blue-600...</code></p>
+                    </div>
+                    
+                    <div class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-lg">
+                        <h3 class="font-bold text-orange-800 mb-2">🔄 Constant Tab Switching</h3>
+                        <p class="text-orange-700">Jump between docs, editor, and browser preview. Your focus is constantly broken.</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg">
+                        <h3 class="font-bold text-yellow-800 mb-2">🐛 Debugging Nightmare</h3>
+                        <p class="text-yellow-700">Which class is being overridden? Which one actually works? Good luck figuring it out!</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-6 rounded-r-lg">
+                        <h3 class="font-bold text-purple-800 mb-2">🎯 Guesswork Galore</h3>
+                        <p class="text-purple-700">Trying to remember if it's <code class="bg-purple-100 px-2 py-1 rounded">text-xl</code> or <code class="bg-purple-100 px-2 py-1 rounded">text-2xl</code>? Again?</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-gray-100 rounded-2xl p-8 relative">
+                        <div class="text-6xl mb-4">😤</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Sound Familiar?</h3>
+                        <p class="text-gray-600 text-lg">You're not alone. Thousands of developers face this daily frustration.</p>
+                        <div class="absolute -top-4 -right-4 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold pulse-animation">!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Solution Section -->
+    <div class="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6">
+                    Introducing Tail Lens
+                </h2>
+                <p class="text-2xl text-gray-700 mb-4">Your Tailwind CSS Sidekick</p>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">
+                    A lightweight Chrome extension that lets you inspect, edit, and preview Tailwind CSS classes directly in the browser — no code editing, no tab switching, no frustration.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 card-hover">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-6">✨ Visual Magic</h3>
+                            <ul class="space-y-4 text-lg text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 text-xl">✓</span>
+                                    Hover over elements to see live changes
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 text-xl">✓</span>
+                                    No more memorizing class names
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 text-xl">✓</span>
+                                    Instant preview without touching code
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 text-xl">✓</span>
+                                    Debug faster than ever before
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl p-8 text-white">
+                                <div class="text-4xl mb-4">🎨</div>
+                                <h4 class="text-xl font-bold mb-2">It's like Tailwind's missing visual editor</h4>
+                                <p class="text-blue-100">Just install it, open any Tailwind site, and start creating magic!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold gradient-text mb-6">
+                    Powerful Features, Simple to Use
+                </h2>
+                <p class="text-xl text-gray-600">Everything you need to supercharge your Tailwind workflow</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">🔍</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Live Preview on Hover</h3>
+                    <p class="text-gray-600">See changes instantly as you hover over class options. Real-time magic!</p>
+                </div>
+                
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">🎯</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Suggestions</h3>
+                    <p class="text-gray-600">Get intelligent class recommendations based on your current selection.</p>
+                </div>
+                
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">📌</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pin & Compare</h3>
+                    <p class="text-gray-600">Freeze elements and compare them side by side for perfect layouts.</p>
+                </div>
+                
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">🔄</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Toggle Classes</h3>
+                    <p class="text-gray-600">Turn classes on/off instantly to debug and perfect your styles.</p>
+                </div>
+                
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-red-50 to-red-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">📐</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Layout Guides</h3>
+                    <p class="text-gray-600">Visual spacing, margin, and padding guides right on your page.</p>
+                </div>
+                
+                <div class="text-center p-6 card-hover bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl">
+                    <div class="feature-icon">
+                        <span class="text-white text-2xl">📋</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">One-Click Copy</h3>
+                    <p class="text-gray-600">Copy all applied classes instantly. Perfect for reusing styles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <div class="py-20 gradient-bg">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold text-white mb-6">Simple, Fair Pricing</h2>
+            <p class="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">No subscriptions. No hidden fees. Pay once, use forever.</p>
+            
+            <div class="max-w-md mx-auto">
+                <div class="pricing-glow">
+                    <div class="pricing-inner text-center">
+                        <div class="text-6xl font-black gradient-text mb-4">$30</div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Lifetime Access</h3>
+                        <ul class="text-left space-y-3 mb-8 text-gray-600">
+                            <li class="flex items-center">
+                                <span class="text-green-500 mr-3">✓</span>
+                                All current features
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-green-500 mr-3">✓</span>
+                                Future updates included
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-green-500 mr-3">✓</span>
+                                Tailwind v3 & v4 support
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-green-500 mr-3">✓</span>
+                                Custom config support
+                            </li>
+                            <li class="flex items-center">
+                                <span class="text-green-500 mr-3">✓</span>
+                                No monthly fees ever
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Get Tail Lens Now
+                        </button>
+                        <p class="text-sm text-gray-500 mt-4">⚡ Instant download after purchase</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap Section -->
+    <div class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6">Roadmap & Updates</h2>
+                <p class="text-xl text-gray-600">Constantly evolving with new features</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="bg-green-50 border-l-4 border-green-400 p-6 rounded-r-lg">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">RELEASED</span>
+                            <span class="text-gray-600">May 20, 2025 - v2.0</span>
+                        </div>
+                        <h3 class="font-bold text-green-800 mb-2">Enhanced Detection & Navigation</h3>
+                        <p class="text-green-700">Overridden class detection with strikethrough styling and keyboard navigation for parent/sibling elements.</p>
+                    </div>
+                    
+                    <div class="bg-green-50 border-l-4 border-green-400 p-6 rounded-r-lg">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">RELEASED</span>
+                            <span class="text-gray-600">May 29, 2025 - v2.1</span>
+                        </div>
+                        <h3 class="font-bold text-green-800 mb-2">Tailwind v4 Compatibility</h3>
+                        <p class="text-green-700">Full support for the latest Tailwind v4 with all new features and improvements.</p>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-r-lg">
+                        <div class="flex items-center mb-2">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold mr-3">COMING SOON</span>
+                            <span class="text-gray-600">June 20, 2025 - v2.2</span>
+                        </div>
+                        <h3 class="font-bold text-blue-800 mb-2">HTML to Tailwind Converter</h3>
+                        <p class="text-blue-700">Convert existing HTML with regular CSS to Tailwind classes automatically, plus plugin support for Tailwind v3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="py-20 gradient-bg">
+        <div class="container mx-auto px-6 text-center text-white">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-5xl font-bold mb-6">Ready to Transform Your Workflow?</h2>
+                <p class="text-2xl text-blue-200 mb-12">Join thousands of developers who've already supercharged their Tailwind experience</p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                    <button class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-6 px-12 rounded-full text-xl transition-all duration-300 transform hover:scale-105 shadow-2xl">
+                        Get Tail Lens - $30
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl mb-2">🚀</div>
+                        <h3 class="font-bold mb-2">Learn Visually</h3>
+                        <p class="text-blue-200">See what each class does in real-time</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">⚡</div>
+                        <h3 class="font-bold mb-2">Build Faster</h3>
+                        <p class="text-blue-200">Cut your development time in half</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h3 class="font-bold mb-2">Debug Easier</h3>
+                        <p class="text-blue-200">Find and fix issues instantly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="py-12 bg-gray-900 text-gray-400 text-center">
+        <p>&copy; 2025 Tail Lens. All rights reserved. (Monika)</p>
+        <p class="mt-2">The Tailwind Inspector You've Been Waiting For ✨</p>
+    </div>
+</body>
+</html>
